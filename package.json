@@ -1,0 +1,51 @@
+{
+  "name": "techlearn",
+  "version": "0.1.0",
+  "description": "TechLearn interactive IT learning path",
+  "main": "main.js",
+  "author": "TechLearn",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "dist:dir": "electron-builder --dir",
+    "build": "npm run dist"
+  },
+  "build": {
+    "appId": "com.techlearn.app",
+    "productName": "TechLearn",
+    "artifactName": "TechLearn-${version}-${os}-${arch}-installer.${ext}",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "index.html",
+      "css/**/*",
+      "js/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "artifactName": "TechLearn-${version}-${os}-${arch}-installer.${ext}",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "TechLearn"
+    },
+    "portable": {
+      "artifactName": "TechLearn-${version}-${os}-${arch}-portable.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^38.1.0",
+    "electron-builder": "^26.0.12"
+  }
+}

@@ -26,7 +26,7 @@
 
   /* neutrals */
   --ink: #eceef1;
-  --ink-questions: black;
+  --ink-questions: #eceef1;
   --ink-soft: #a3aab5;
   --line: #2b303a;
   --locked: #2a2f38;
@@ -59,6 +59,7 @@
   --red-pale: #ffdfe0;
 
   --ink: #3c3c3c;
+  --ink-questions: #111827;
   --ink-soft: #6a6a6a;
   --line: #e5e5e5;
   --locked: #e5e5e5;
@@ -656,14 +657,19 @@ h1, h2, h3 {
   padding: 16px 18px;
   border-radius: var(--radius-md);
   border: 2px solid var(--line);
+  background: var(--paper);
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 18px;
   color: var(--ink-questions);
+  -webkit-text-fill-color: var(--ink-questions);
+  caret-color: var(--blue-dark);
+  opacity: 1;
   outline: none;
   transition: border-color 0.12s;
 }
 .type-answer-input:focus { border-color: var(--blue); }
+.type-answer-input::placeholder { color: var(--ink-soft); opacity: 1; }
 .type-answer-input.correct-reveal { border-color: var(--green-dark); background: var(--green); }
 .type-answer-input.incorrect-reveal { border-color: var(--red); background: var(--red-pale); }
 
@@ -688,7 +694,7 @@ h1, h2, h3 {
   font-size: 15px;
   cursor: pointer;
   transition: border-color 0.12s, background 0.12s;
-  color: white;
+  color: var(--ink);
 }
 .match-btn.selected { border-color: var(--blue); background: var(--blue-pale); }
 .match-btn.matched { border-color: var(--green); background: var(--green-pale); opacity: 0.65; cursor: default; }

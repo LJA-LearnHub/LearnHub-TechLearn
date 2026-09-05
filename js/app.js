@@ -449,21 +449,26 @@
     el.lessonBody.innerHTML = `
       <div class="exercise-kicker">Type your answer</div>
       <div class="exercise-question">${escapeHtml(ex.question)}</div>
-      <input type="text" class="type-answer-input" id="type-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type here...">
+      <input type="text" class="type-answer-input" id="type-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type here..." aria-label="Your answer">
       ${ex.hint ? `<div class="type-answer-hint">Hint: ${escapeHtml(ex.hint)}</div>` : ""}
     `;
     const input = document.getElementById("type-input");
-    input.addEventListener("input", () => {
+    input.disabled = false;
+    input.readOnly = false;
+
+    const updateAnswerState = () => {
       session.selection = input.value;
       setActionButton("Check", input.value.trim().length === 0, false);
-    });
+    };
+    input.addEventListener("input", updateAnswerState);
+    input.addEventListener("change", updateAnswerState);
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && !el.lessonActionBtn.disabled) el.lessonActionBtn.click();
     });
-    setTimeout(() => input.focus(), 50);
+    requestAnimationFrame(() => input.focus());
 
     el.lessonActionBtn.onclick = () => {
-      const raw = (session.selection || "").trim().toLowerCase();
+      const raw = input.value.trim().toLowerCase();
       const accepted = ex.accepted.map(a => a.trim().toLowerCase());
       const correct = accepted.includes(raw);
       input.classList.add(correct ? "correct-reveal" : "incorrect-reveal");
