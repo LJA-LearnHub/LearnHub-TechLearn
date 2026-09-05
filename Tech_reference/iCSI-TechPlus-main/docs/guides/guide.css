@@ -1,0 +1,387 @@
+/* =====================================================================
+   FULL.CSS
+   Stylesheet for full.html (Complete Study Guide Collection)
+   Ported from app.css — reuses the same colors, type, radii, shadows
+   and component language, adapted for a single long-form document
+   built from plain HTML (h1–h3, p, ul/ol, table, pre/code, blockquote)
+   instead of the app's custom .lesson-body / .lesson-callout classes.
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* -- core palette (from app.css) -- */
+  --bg:        #EAF4FF;
+  --bg-warm:   #D7EEFF;
+  --surface:   #FFFFFF;
+  --surface-2: #EFF7FF;
+  --ink:       #102A43;
+  --ink2:      #1E3A60;
+  --ink3:      #4B6D94;
+  --border:    #D5E2F4;
+  --border-light: #E6EFFB;
+  --accent:    #0EA5E9;
+  --accent-bg: #D5EEFF;
+  --accent-dk: #0369A1;
+  --accent-glow: rgba(14,165,233,.16);
+  --good:      #047857;
+  --good-bg:   #D1FAE5;
+  --bad:       #DC2626;
+  --bad-bg:    #FEE2E2;
+  --warn:      #0C4A6E;
+  --warn-bg:   #DBF2FF;
+  --callout-bg-end: #F0F8FF;
+  --callout-text: #075985;
+  --note-bg-end: #ffffff;
+  --note-text: #1E3A60;
+  --code-inline-bg: #EAF2FF;
+  --code-inline-fg: #0369A1;
+  --table-head-bg: #102A43;
+  --table-head-fg: #ffffff;
+
+  /* -- shape / motion (from app.css) -- */
+  --radius:    16px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+  --serif:     'DM Serif Display', Georgia, serif;
+  --sans:      'Inter', system-ui, sans-serif;
+  --mono:      'JetBrains Mono', monospace;
+  --shadow:    0 4px 16px rgba(28,28,46,.08), 0 12px 40px rgba(28,28,46,.06);
+  --shadow-sm: 0 1px 3px rgba(28,28,46,.04), 0 4px 12px rgba(28,28,46,.05);
+  --shadow-lg: 0 8px 30px rgba(28,28,46,.1), 0 24px 60px rgba(28,28,46,.08);
+  --ease:      cubic-bezier(.4, 0, .2, 1);
+  --transition: .2s var(--ease);
+
+  /* -- new: code-block syntax palette (full.html has no equivalent
+     in app.css, since the app doesn't render hljs code spans) -- */
+  --code-bg-a:      #1a1a2e;
+  --code-bg-b:      #12121f;
+  --code-fg:        #c8d3f5;
+  --code-comment:   #6e7a99;
+  --code-keyword:   #7aa2f7;
+  --code-builtin:   #5eead4;
+  --code-title:     #67e8f9;
+  --code-string:    #34d399;
+  --code-number:    #fbbf24;
+  --code-tag:       #8b95b3;
+  --code-name:      #f38ba8;
+  --code-attr:      #e0af68;
+  --code-variable:  #c792ea;
+}
+
+/* ===== RESET / BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; min-height: 100%; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== PAGE SHELL =====
+   html = full-bleed atmospheric backdrop (matches #main in app.css)
+   body = the floating "content panel" card that holds the guide      */
+html {
+  background:
+    radial-gradient(circle at 18% 8%,  rgba(14,165,233,.16), transparent 22%),
+    radial-gradient(circle at 80% 6%,  rgba(59,130,246,.12), transparent 20%),
+    radial-gradient(circle at 50% 40%, rgba(59,130,246,.06), transparent 30%),
+    linear-gradient(180deg, var(--bg-warm) 0%, var(--bg) 100%);
+}
+body {
+  max-width: 880px;
+  margin: 40px auto;
+  padding: 56px 64px 72px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+@media (max-width: 900px) {
+  body { max-width: 100%; margin: 24px 16px; padding: 40px 32px 56px; }
+}
+@media (max-width: 600px) {
+  body { margin: 0; padding: 32px 20px 48px; border-radius: 0; border: none; box-shadow: none; }
+}
+
+/* ===== HEADINGS ===== */
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.14;
+  color: var(--ink);
+  letter-spacing: -.025em;
+  margin: 64px 0 16px;
+  scroll-margin-top: 24px;
+}
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3vw, 27px);
+  line-height: 1.25;
+  color: var(--ink);
+  letter-spacing: -.015em;
+  margin: 48px 0 18px;
+  scroll-margin-top: 24px;
+}
+h3 {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -.2px;
+  margin: 36px 0 12px;
+  scroll-margin-top: 24px;
+}
+
+/* Cover title (the very first h1 on the page) reads as a hero */
+body > h1:first-of-type {
+  margin-top: 0;
+  text-align: center;
+  font-size: clamp(34px, 5vw, 48px);
+  color: var(--ink);
+}
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  body > h1:first-of-type {
+    background: linear-gradient(135deg, var(--ink) 0%, var(--accent-dk) 60%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+/* Tagline directly under the cover title */
+h1:first-of-type + h3 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--ink3);
+  margin: 0 0 4px;
+}
+
+/* ===== TEXT / INLINE ===== */
+p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ink2);
+  margin-bottom: 20px;
+  max-width: 72ch;
+}
+strong { color: var(--ink); font-weight: 600; }
+em { color: var(--ink); font-style: italic; }
+a {
+  color: var(--accent-dk);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(8,145,178,.35);
+  transition: color var(--transition), text-decoration-color var(--transition);
+}
+a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+/* ===== LISTS ===== */
+ul, ol { margin: 0 0 22px 26px; }
+ul ul, ul ol, ol ul, ol ol { margin-top: 8px; margin-bottom: 0; }
+li {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ink2);
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+li::marker { color: var(--accent); font-weight: 600; }
+
+/* Table of contents: the only <ol> items that contain links.
+   Gives just those entries a nav-style hover treatment. */
+ol li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 2px 0;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  color: var(--ink2);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform .12s var(--ease);
+}
+ol li a:hover {
+  background: var(--accent-bg);
+  border-color: rgba(8,145,178,.18);
+  color: var(--accent-dk);
+  transform: translateX(3px);
+}
+
+/* ===== BLOCKQUOTE (used in the doc as "pay attention" callouts —
+   usage tips and CRITICAL/legal warnings) ===== */
+blockquote {
+  background: linear-gradient(135deg, var(--warn-bg) 0%, var(--note-bg-end) 100%);
+  border-left: 4px solid var(--warn);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 20px 24px;
+  margin: 28px 0;
+  box-shadow: var(--shadow-sm);
+}
+blockquote p { color: var(--note-text); max-width: none; margin-bottom: 0; }
+blockquote p + p { margin-top: 10px; }
+blockquote strong { color: var(--ink); }
+
+/* ===== INLINE CODE ===== */
+code {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--code-inline-fg);
+  background: var(--code-inline-bg);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+/* ===== CODE BLOCKS ===== */
+pre {
+  background: linear-gradient(165deg, var(--code-bg-a) 0%, var(--code-bg-b) 100%);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--radius-sm);
+  padding: 22px 26px;
+  margin: 28px 0;
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+}
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  color: var(--code-fg);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* highlight.js token colors — tuned to read well on the dark pre
+   background above; not affected by the page's light/dark theme,
+   since the code surface itself stays dark either way. */
+.hljs-comment, .hljs-quote { color: var(--code-comment); font-style: italic; }
+.hljs-doctag { color: var(--code-comment); font-weight: 700; }
+.hljs-meta { color: var(--code-comment); }
+.hljs-keyword, .hljs-selector-tag { color: var(--code-keyword); }
+.hljs-built_in, .hljs-selector-id, .hljs-section { color: var(--code-builtin); }
+.hljs-title { color: var(--code-title); }
+.hljs-string, .hljs-regexp, .hljs-addition { color: var(--code-string); }
+.hljs-number, .hljs-literal, .hljs-symbol { color: var(--code-number); }
+.hljs-tag { color: var(--code-tag); }
+.hljs-name { color: var(--code-name); }
+.hljs-deletion { color: var(--code-name); }
+.hljs-attr, .hljs-attribute, .hljs-selector-attr, .hljs-_ { color: var(--code-attr); }
+.hljs-variable, .hljs-template-variable, .hljs-selector-class,
+.hljs-selector-pseudo, .hljs-class, .hljs-type, .hljs-subst, .hljs-rest_arg { color: var(--code-variable); }
+.hljs-params { color: var(--code-fg); }
+/* .xml / .css / .javascript / .actionscript / .bash / .undefined are
+   highlight.js sub-language wrapper spans with no semantic color of
+   their own — left to inherit the base code color on purpose. */
+
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 28px 0;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  table-layout: fixed;
+}
+table th:first-child:nth-last-child(2),
+table th:first-child:nth-last-child(2) ~ th,
+table td:first-child:nth-last-child(2),
+table td:first-child:nth-last-child(2) ~ td { width: 50%; }
+table th {
+  background: var(--table-head-bg);
+  color: var(--table-head-fg);
+  padding: 16px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+table td {
+  padding: 16px;
+  color: var(--ink2);
+  line-height: 1.5;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border-light);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  transition: background var(--transition), color var(--transition);
+}
+table tr:nth-child(even) td { background: var(--surface-2); }
+table tr:last-child td { border-bottom: none; }
+table tr:hover td { background: rgba(14,165,233,.06); color: var(--ink); }
+table code { font-size: 12.5px; }
+
+/* ===== DIVIDER ===== */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 44px 0;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CDD0DC; border-radius: 99px; border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: #B0B4C8; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  pre { padding: 16px 18px; }
+  table th, table td { padding: 10px 12px; font-size: 13px; }
+}
+
+/* ===== DARK MODE (automatic, follows OS/browser preference —
+   full.html has no toggle button, so this is the no-JS equivalent
+   of app.css's [data-theme="dark"] block) ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12121a;
+    --bg-warm: #16161f;
+    --surface: #1c1c28;
+    --surface-2: #222230;
+    --ink: #eeeef4;
+    --ink2: #b4b4c8;
+    --ink3: #7878a0;
+    --border: #2e2e42;
+    --border-light: #262638;
+    --accent: #22D3EE;
+    --accent-dk: #67E8F9;
+    --accent-bg: rgba(56,189,248,.22);
+    --accent-glow: rgba(56,189,248,.18);
+    --good: #34D399;
+    --good-bg: rgba(5,150,105,.18);
+    --bad: #F87171;
+    --bad-bg: rgba(220,38,38,.15);
+    --warn: #FBBF24;
+    --warn-bg: rgba(217,119,6,.18);
+    --callout-bg-end: rgba(56,189,248,.12);
+    --callout-text: #b4b4c8;
+    --note-bg-end: rgba(217,119,6,.1);
+    --note-text: #C5D7F0;
+    --code-inline-bg: #2a2a3a;
+    --code-inline-fg: #67E8F9;
+    --table-head-bg: #2a2a3e;
+    --table-head-fg: #eeeef4;
+    --shadow: 0 4px 16px rgba(0,0,0,.3);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.2);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,.4);
+    /* code blocks go flat & dark instead of the navy gradient */
+    --code-bg-a: #0d1117;
+    --code-bg-b: #0d1117;
+  }
+  a { text-decoration-color: rgba(103,232,249,.35); }
+  table tr:hover td { background: rgba(34,211,238,.08); }
+  ::-webkit-scrollbar-thumb { background: #4a4a62; }
+  ::-webkit-scrollbar-thumb:hover { background: #5a5a72; }
+}

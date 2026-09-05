@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CompTIA Tech+ (FC0-U71) — Complete Study Guide</title>
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+<p><a href="../../index.html">← Back to Tech+ StudyHub</a></p>
+<h2 id="table-of-contents">On this page</h2>
+<ol>
+<li><a href="#1-exam-overview">1. Exam Overview</a></li>
+<li><a href="#2-domain-1-it-concepts-and-terminology">2. Domain 1: IT Concepts and Terminology</a></li>
+<li><a href="#3-domain-2-infrastructure">3. Domain 2: Infrastructure</a></li>
+<li><a href="#4-domain-3-applications-and-software">4. Domain 3: Applications and Software</a></li>
+<li><a href="#5-domain-4-software-development-concepts">5. Domain 4: Software Development Concepts</a></li>
+<li><a href="#6-domain-5-database-fundamentals">6. Domain 5: Database Fundamentals</a></li>
+<li><a href="#7-domain-6-security">7. Domain 6: Security</a></li>
+<li><a href="#8-quick-review-key-terms">8. Quick Review: Key Terms</a></li>
+</ol>
+<hr>
+<h1 id="comptia-tech-fc0-u71-complete-study-guide">CompTIA Tech+ (FC0-U71) — Complete Study Guide</h1>
+<hr>
+<h2 id="1-exam-overview">1. Exam Overview</h2>
+<p><strong>Exam Code:</strong> FC0-U71<br><strong>Exam Name:</strong> CompTIA Tech+<br><strong>Questions:</strong> 75 multiple-choice<br><strong>Time Limit:</strong> 60 minutes<br><strong>Passing Score:</strong> 650 (on a 100–900 scale)<br><strong>Recommended Experience:</strong> No prerequisites (entry-level)</p>
+<h3 id="domain-breakdown">Domain Breakdown</h3>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. IT Concepts and Terminology</td>
+<td>17%</td>
+</tr>
+<tr>
+<td>2. Infrastructure</td>
+<td>22%</td>
+</tr>
+<tr>
+<td>3. Applications and Software</td>
+<td>18%</td>
+</tr>
+<tr>
+<td>4. Software Development Concepts</td>
+<td>12%</td>
+</tr>
+<tr>
+<td>5. Database Fundamentals</td>
+<td>11%</td>
+</tr>
+<tr>
+<td>6. Security</td>
+<td>20%</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="2-domain-1-it-concepts-and-terminology">2. Domain 1: IT Concepts and Terminology</h2>
+<h3 id="notational-systems">Notational Systems</h3>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Base</th>
+<th>Digits</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binary</td>
+<td>2</td>
+<td>0–1</td>
+<td>How computers store data</td>
+</tr>
+<tr>
+<td>Octal</td>
+<td>8</td>
+<td>0–7</td>
+<td>File permissions (Unix)</td>
+</tr>
+<tr>
+<td>Decimal</td>
+<td>10</td>
+<td>0–9</td>
+<td>Human-readable numbers</td>
+</tr>
+<tr>
+<td>Hexadecimal</td>
+<td>16</td>
+<td>0–F</td>
+<td>Memory addresses, colors</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Converting decimal to binary:</strong></p>
+<ul>
+<li>42 ÷ 2 = 21 R 0 → Read remainders bottom-up</li>
+<li>21 ÷ 2 = 10 R 1</li>
+<li>10 ÷ 2 = 5  R 0</li>
+<li>5  ÷ 2 = 2  R 1</li>
+<li>2  ÷ 2 = 1  R 0</li>
+<li>1  ÷ 2 = 0  R 1</li>
+<li><strong>42 = 101010 in binary</strong></li>
+</ul>
+<p><strong>Hex shortcuts:</strong> 1 hex digit = 4 binary bits. FF = 11111111 = 255 decimal.</p>
+<h3 id="data-storage-units">Data Storage Units</h3>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Bytes</th>
+<th>Approximate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bit (b)</td>
+<td>1/8</td>
+<td>Single 0 or 1</td>
+</tr>
+<tr>
+<td>Byte (B)</td>
+<td>1</td>
+<td>One character</td>
+</tr>
+<tr>
+<td>Kilobyte (KB)</td>
+<td>1,024</td>
+<td>Short document</td>
+</tr>
+<tr>
+<td>Megabyte (MB)</td>
+<td>1,048,576</td>
+<td>MP3 song</td>
+</tr>
+<tr>
+<td>Gigabyte (GB)</td>
+<td>1,073,741,824</td>
+<td>HD movie</td>
+</tr>
+<tr>
+<td>Terabyte (TB)</td>
+<td>~1 trillion</td>
+<td>Large HDD</td>
+</tr>
+<tr>
+<td>Petabyte (PB)</td>
+<td>~1 quadrillion</td>
+<td>Data center</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cpu-architecture">CPU Architecture</h3>
+<ul>
+<li><strong>CPU (Central Processing Unit):</strong> Executes instructions; the &quot;brain&quot;</li>
+<li><strong>Cores:</strong> Independent execution units in one chip (dual-core, quad-core, octa-core)</li>
+<li><strong>Clock Speed:</strong> GHz = operations per second; higher = faster</li>
+<li><strong>Cache:</strong> L1 (fastest/smallest) → L2 → L3 (largest/slowest)</li>
+<li><strong>32-bit vs 64-bit:</strong> 64-bit can address more RAM (&gt;4GB) and is standard today</li>
+<li><strong>x86 / x64:</strong> Intel/AMD instruction set architectures</li>
+<li><strong>ARM:</strong> Low-power architecture (mobile, embedded, Apple Silicon)</li>
+</ul>
+<h3 id="memory-types">Memory Types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Volatile</th>
+<th>Speed</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Register</td>
+<td>Yes</td>
+<td>Fastest</td>
+<td>CPU calculations</td>
+</tr>
+<tr>
+<td>L1/L2/L3 Cache</td>
+<td>Yes</td>
+<td>Very Fast</td>
+<td>Recently used data</td>
+</tr>
+<tr>
+<td>RAM (DRAM)</td>
+<td>Yes</td>
+<td>Fast</td>
+<td>Active programs</td>
+</tr>
+<tr>
+<td>Virtual Memory</td>
+<td>N/A</td>
+<td>Slow</td>
+<td>RAM overflow (uses HDD)</td>
+</tr>
+<tr>
+<td>ROM</td>
+<td>No</td>
+<td>Fast</td>
+<td>Firmware/BIOS</td>
+</tr>
+<tr>
+<td>Flash</td>
+<td>No</td>
+<td>Medium</td>
+<td>SSDs, USB drives</td>
+</tr>
+<tr>
+<td>HDD</td>
+<td>No</td>
+<td>Slow</td>
+<td>Long-term storage</td>
+</tr>
+</tbody>
+</table>
+<p><strong>RAM Types:</strong></p>
+<ul>
+<li><strong>DDR4, DDR5:</strong> Current standard (Double Data Rate)</li>
+<li><strong>DIMM:</strong> Desktop RAM form factor</li>
+<li><strong>SO-DIMM:</strong> Laptop RAM form factor</li>
+<li><strong>ECC RAM:</strong> Error-correcting (servers)</li>
+</ul>
+<h3 id="input-output-devices">Input/Output Devices</h3>
+<p><strong>Input:</strong> Keyboard, mouse, scanner, webcam, microphone, stylus, barcode reader, biometric reader, touchscreen<br><strong>Output:</strong> Monitor, printer, speaker, projector<br><strong>Input/Output:</strong> Touchscreen, headset, external storage</p>
+<h3 id="connectivity-types">Connectivity Types</h3>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Speed</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USB 2.0</td>
+<td>480 Mbps</td>
+<td>Common peripherals</td>
+</tr>
+<tr>
+<td>USB 3.0 (blue)</td>
+<td>5 Gbps</td>
+<td>Fast storage</td>
+</tr>
+<tr>
+<td>USB 3.1</td>
+<td>10 Gbps</td>
+<td>External drives</td>
+</tr>
+<tr>
+<td>USB 3.2</td>
+<td>20 Gbps</td>
+<td>Fast external SSDs</td>
+</tr>
+<tr>
+<td>USB4</td>
+<td>40 Gbps</td>
+<td>Thunderbolt-compatible</td>
+</tr>
+<tr>
+<td>Thunderbolt 3/4</td>
+<td>40 Gbps</td>
+<td>Docking stations, 4K</td>
+</tr>
+<tr>
+<td>HDMI</td>
+<td>Video</td>
+<td>Displays, TVs</td>
+</tr>
+<tr>
+<td>DisplayPort</td>
+<td>Video</td>
+<td>Monitors (supports daisy-chain)</td>
+</tr>
+<tr>
+<td>USB-C</td>
+<td>Power + data + video</td>
+<td>Universal connector</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="3-domain-2-infrastructure">3. Domain 2: Infrastructure</h2>
+<h3 id="motherboard-and-components">Motherboard and Components</h3>
+<ul>
+<li><strong>Motherboard:</strong> Main circuit board connecting all components</li>
+<li><strong>Chipset:</strong> Controls communication between CPU, RAM, storage</li>
+<li><strong>PCIe Slots:</strong> Expansion cards (GPU, NIC, SSD)</li>
+<li><strong>SATA Ports:</strong> Hard drives and optical drives</li>
+<li><strong>M.2 Slot:</strong> NVMe SSDs (very fast, small form factor)</li>
+<li><strong>BIOS/UEFI:</strong> Firmware that initializes hardware at startup<ul>
+<li>BIOS: Legacy; UEFI: Modern (supports GPT, Secure Boot, faster)</li>
+</ul>
+</li>
+<li><strong>CMOS Battery:</strong> Keeps BIOS settings when power is off</li>
+</ul>
+<h3 id="storage-technologies">Storage Technologies</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Technology</th>
+<th>Speed</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HDD</td>
+<td>Magnetic spinning disk</td>
+<td>Slow (~100 MB/s)</td>
+<td>High capacity, cheap</td>
+</tr>
+<tr>
+<td>SSD (SATA)</td>
+<td>Flash memory</td>
+<td>Faster (~500 MB/s)</td>
+<td>Replaces HDD</td>
+</tr>
+<tr>
+<td>NVMe SSD</td>
+<td>Flash via PCIe</td>
+<td>Fastest (~3-7 GB/s)</td>
+<td>Gaming, workstations</td>
+</tr>
+<tr>
+<td>Optical</td>
+<td>Laser (CD/DVD/Blu-ray)</td>
+<td>Very slow</td>
+<td>Media, archiving</td>
+</tr>
+<tr>
+<td>USB Flash</td>
+<td>NAND flash</td>
+<td>Varies</td>
+<td>Portable</td>
+</tr>
+<tr>
+<td>SD Card</td>
+<td>NAND flash</td>
+<td>Varies</td>
+<td>Cameras, mobile</td>
+</tr>
+</tbody>
+</table>
+<p><strong>RAID (Redundant Array of Independent Disks):</strong></p>
+<table>
+<thead>
+<tr>
+<th>RAID</th>
+<th>Min Drives</th>
+<th>Benefit</th>
+<th>Loss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RAID 0 (Striping)</td>
+<td>2</td>
+<td>Speed</td>
+<td>No redundancy</td>
+</tr>
+<tr>
+<td>RAID 1 (Mirroring)</td>
+<td>2</td>
+<td>Redundancy</td>
+<td>50% capacity</td>
+</tr>
+<tr>
+<td>RAID 5</td>
+<td>3</td>
+<td>Balance</td>
+<td>1 drive</td>
+</tr>
+<tr>
+<td>RAID 6</td>
+<td>4</td>
+<td>More redundant</td>
+<td>2 drives</td>
+</tr>
+<tr>
+<td>RAID 10</td>
+<td>4</td>
+<td>Speed + redundancy</td>
+<td>50% capacity</td>
+</tr>
+</tbody>
+</table>
+<h3 id="networking-hardware">Networking Hardware</h3>
+<ul>
+<li><strong>Router:</strong> Connects networks; routes packets between them; assigns IPs</li>
+<li><strong>Switch:</strong> Connects devices within a LAN; works at Layer 2 (MAC addresses)</li>
+<li><strong>Hub:</strong> Old/dumb; broadcasts to all ports (avoid)</li>
+<li><strong>Access Point (AP):</strong> Wireless radio for Wi-Fi devices</li>
+<li><strong>Modem:</strong> Converts digital ↔ analog (DSL/cable/fiber)</li>
+<li><strong>Firewall:</strong> Controls traffic based on rules</li>
+<li><strong>NIC (Network Interface Card):</strong> Device&#39;s network connection</li>
+<li><strong>Patch Panel:</strong> Organized wiring distribution</li>
+</ul>
+<h3 id="network-types-and-topologies">Network Types and Topologies</h3>
+<table>
+<thead>
+<tr>
+<th>Network Type</th>
+<th>Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PAN</td>
+<td>Personal (~10 feet, Bluetooth)</td>
+</tr>
+<tr>
+<td>LAN</td>
+<td>Local Area (building/campus)</td>
+</tr>
+<tr>
+<td>MAN</td>
+<td>Metropolitan Area (city)</td>
+</tr>
+<tr>
+<td>WAN</td>
+<td>Wide Area (country/world)</td>
+</tr>
+<tr>
+<td>WLAN</td>
+<td>Wireless LAN</td>
+</tr>
+<tr>
+<td>VPN</td>
+<td>Virtual Private Network (secure tunnel)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Topologies:</strong></p>
+<ul>
+<li><strong>Bus:</strong> All on one cable; failure breaks network</li>
+<li><strong>Ring:</strong> Circle; traffic flows one direction</li>
+<li><strong>Star:</strong> All connect to central switch (most common today)</li>
+<li><strong>Mesh:</strong> Every device connected to every other (high redundancy)</li>
+<li><strong>Hybrid:</strong> Mix of topologies</li>
+</ul>
+<h3 id="cloud-computing">Cloud Computing</h3>
+<p><strong>Service Models:</strong></p>
+<ul>
+<li><strong>IaaS (Infrastructure as a Service):</strong> Virtual machines, storage (AWS EC2, Azure VMs)</li>
+<li><strong>PaaS (Platform as a Service):</strong> Development platform (Google App Engine, Heroku)</li>
+<li><strong>SaaS (Software as a Service):</strong> Ready-to-use apps (Gmail, Salesforce, Office 365)</li>
+</ul>
+<p><strong>Deployment Models:</strong></p>
+<ul>
+<li><strong>Public:</strong> Shared infrastructure (AWS, Azure, GCP)</li>
+<li><strong>Private:</strong> Dedicated to one organization</li>
+<li><strong>Hybrid:</strong> Mix of public and private</li>
+<li><strong>Community:</strong> Shared by several organizations with similar needs</li>
+</ul>
+<p><strong>Cloud Benefits:</strong></p>
+<ul>
+<li>Scalability / Elasticity</li>
+<li>Pay-as-you-go (CapEx → OpEx)</li>
+<li>High availability</li>
+<li>Geographic redundancy</li>
+<li>No hardware maintenance</li>
+</ul>
+<h3 id="virtualization">Virtualization</h3>
+<ul>
+<li><strong>Hypervisor:</strong> Software that creates and manages VMs<ul>
+<li><strong>Type 1 (Bare-metal):</strong> Runs on hardware directly (VMware ESXi, Hyper-V Server, KVM)</li>
+<li><strong>Type 2 (Hosted):</strong> Runs on top of OS (VMware Workstation, VirtualBox)</li>
+</ul>
+</li>
+<li><strong>VM (Virtual Machine):</strong> Emulates complete computer</li>
+<li><strong>Container:</strong> Lightweight VM; shares OS kernel (Docker)</li>
+<li><strong>Snapshot:</strong> Point-in-time copy of VM state</li>
+</ul>
+<hr>
+<h2 id="4-domain-3-applications-and-software">4. Domain 3: Applications and Software</h2>
+<h3 id="operating-systems">Operating Systems</h3>
+<p><strong>Functions of an OS:</strong></p>
+<ul>
+<li>Process management (CPU scheduling)</li>
+<li>Memory management (RAM allocation)</li>
+<li>File system management</li>
+<li>Device management (drivers)</li>
+<li>User interface (CLI or GUI)</li>
+<li>Security and access control</li>
+</ul>
+<p><strong>Major OS Families:</strong></p>
+<table>
+<thead>
+<tr>
+<th>OS</th>
+<th>Kernel</th>
+<th>GUI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows 11</td>
+<td>Windows NT</td>
+<td>Explorer (shell)</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td>XNU (Darwin)</td>
+<td>Aqua</td>
+</tr>
+<tr>
+<td>Ubuntu Linux</td>
+<td>Linux kernel</td>
+<td>GNOME/KDE</td>
+</tr>
+<tr>
+<td>Android</td>
+<td>Linux kernel</td>
+<td>Custom</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td>XNU</td>
+<td>SpringBoard</td>
+</tr>
+<tr>
+<td>Chrome OS</td>
+<td>Linux kernel</td>
+<td>Chrome</td>
+</tr>
+</tbody>
+</table>
+<p><strong>File Systems:</strong></p>
+<table>
+<thead>
+<tr>
+<th>File System</th>
+<th>OS</th>
+<th>Max File Size</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NTFS</td>
+<td>Windows</td>
+<td>16 EB</td>
+<td>Journaling, encryption</td>
+</tr>
+<tr>
+<td>FAT32</td>
+<td>Universal</td>
+<td>4 GB</td>
+<td>Cross-platform, old</td>
+</tr>
+<tr>
+<td>exFAT</td>
+<td>Universal</td>
+<td>16 EB</td>
+<td>USB drives, Flash</td>
+</tr>
+<tr>
+<td>ext4</td>
+<td>Linux</td>
+<td>16 TB</td>
+<td>Modern Linux default</td>
+</tr>
+<tr>
+<td>APFS</td>
+<td>macOS</td>
+<td>8 EB</td>
+<td>SSD-optimized</td>
+</tr>
+<tr>
+<td>HFS+</td>
+<td>macOS (old)</td>
+<td>8 EB</td>
+<td>Legacy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="application-types">Application Types</h3>
+<ul>
+<li><strong>Native app:</strong> Built for specific OS (Windows .exe, macOS .app)</li>
+<li><strong>Web app:</strong> Runs in browser; cross-platform</li>
+<li><strong>Mobile app:</strong> iOS/Android</li>
+<li><strong>Cross-platform app:</strong> Electron, Flutter, React Native</li>
+<li><strong>Open source:</strong> Source code publicly available (LibreOffice, Firefox)</li>
+<li><strong>Proprietary:</strong> Commercial, closed-source (Adobe, Microsoft Office)</li>
+<li><strong>Freeware:</strong> Free but closed-source</li>
+<li><strong>Shareware:</strong> Try before you buy</li>
+</ul>
+<h3 id="software-licensing">Software Licensing</h3>
+<table>
+<thead>
+<tr>
+<th>License Type</th>
+<th>Key Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Perpetual</td>
+<td>Buy once, use forever</td>
+</tr>
+<tr>
+<td>Subscription</td>
+<td>Monthly/annual fee</td>
+</tr>
+<tr>
+<td>Per-seat</td>
+<td>Per user</td>
+</tr>
+<tr>
+<td>Site license</td>
+<td>Unlimited users at a location</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td>Org-wide</td>
+</tr>
+<tr>
+<td>Open Source (GPL)</td>
+<td>Must share modifications</td>
+</tr>
+<tr>
+<td>Open Source (MIT/Apache)</td>
+<td>More permissive</td>
+</tr>
+<tr>
+<td>Freeware</td>
+<td>Free, no source</td>
+</tr>
+<tr>
+<td>Shareware</td>
+<td>Time/feature limited trial</td>
+</tr>
+<tr>
+<td>OEM</td>
+<td>Tied to hardware</td>
+</tr>
+</tbody>
+</table>
+<h3 id="file-types">File Types</h3>
+<p><strong>Documents:</strong> .docx, .xlsx, .pptx, .pdf, .txt, .odt<br><strong>Images:</strong> .jpg/jpeg, .png, .gif, .bmp, .tiff, .svg, .webp, .raw<br><strong>Video:</strong> .mp4, .avi, .mkv, .mov, .wmv<br><strong>Audio:</strong> .mp3, .wav, .aac, .flac, .ogg<br><strong>Archives:</strong> .zip, .rar, .7z, .tar, .gz<br><strong>Executables:</strong> .exe (Windows), .dmg (macOS), .sh, .deb, .rpm (Linux)<br><strong>Web:</strong> .html, .css, .js, .php<br><strong>Data:</strong> .csv, .json, .xml, .sql  </p>
+<hr>
+<h2 id="5-domain-4-software-development-concepts">5. Domain 4: Software Development Concepts</h2>
+<h3 id="programming-paradigms">Programming Paradigms</h3>
+<table>
+<thead>
+<tr>
+<th>Paradigm</th>
+<th>Description</th>
+<th>Languages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Procedural</td>
+<td>Step-by-step instructions</td>
+<td>C, Pascal</td>
+</tr>
+<tr>
+<td>Object-Oriented</td>
+<td>Objects with data + behavior</td>
+<td>Java, Python, C++</td>
+</tr>
+<tr>
+<td>Functional</td>
+<td>Functions as values, immutable data</td>
+<td>Haskell, Erlang, F#</td>
+</tr>
+<tr>
+<td>Event-Driven</td>
+<td>Responds to events</td>
+<td>JavaScript</td>
+</tr>
+<tr>
+<td>Declarative</td>
+<td>Describe what, not how</td>
+<td>SQL, HTML</td>
+</tr>
+</tbody>
+</table>
+<h3 id="programming-concepts">Programming Concepts</h3>
+<ul>
+<li><strong>Variable:</strong> Named storage location in memory</li>
+<li><strong>Data type:</strong> Category of data (integer, string, boolean, float)</li>
+<li><strong>Constant:</strong> Variable that cannot change</li>
+<li><strong>Operator:</strong> Performs operation (+, -, *, /, %, ==)</li>
+<li><strong>Control flow:</strong> if/else, switch, loops</li>
+<li><strong>Function/Method:</strong> Reusable block of code</li>
+<li><strong>Parameter:</strong> Input to a function</li>
+<li><strong>Return value:</strong> Output of a function</li>
+<li><strong>Loop:</strong> Repeat code (for, while, do-while)</li>
+<li><strong>Array:</strong> Ordered collection of same-type elements</li>
+<li><strong>Object:</strong> Instance of a class with properties and methods</li>
+<li><strong>Class:</strong> Blueprint for creating objects</li>
+<li><strong>Inheritance:</strong> Child class extends parent class</li>
+<li><strong>Polymorphism:</strong> Same method name, different behavior</li>
+<li><strong>Encapsulation:</strong> Hiding implementation details</li>
+</ul>
+<h3 id="interpreted-vs-compiled">Interpreted vs Compiled</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Compiled</th>
+<th>Interpreted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples</td>
+<td>C, C++, Java (to bytecode)</td>
+<td>Python, JavaScript, Ruby</td>
+</tr>
+<tr>
+<td>Process</td>
+<td>Translated to machine code before run</td>
+<td>Translated line by line at run</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Faster execution</td>
+<td>Slower execution</td>
+</tr>
+<tr>
+<td>Portability</td>
+<td>Platform-specific binary</td>
+<td>Cross-platform</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td>Found at compile time</td>
+<td>Found at runtime</td>
+</tr>
+</tbody>
+</table>
+<h3 id="software-development-life-cycle-sdlc-">Software Development Life Cycle (SDLC)</h3>
+<ol>
+<li><strong>Planning</strong> — Define scope, feasibility, resources</li>
+<li><strong>Analysis/Requirements</strong> — What should the software do?</li>
+<li><strong>Design</strong> — Architecture, database schema, UI mockups</li>
+<li><strong>Development/Coding</strong> — Write the code</li>
+<li><strong>Testing</strong> — Find and fix bugs</li>
+<li><strong>Deployment</strong> — Release to production</li>
+<li><strong>Maintenance</strong> — Updates, patches, enhancements</li>
+</ol>
+<p><strong>Methodologies:</strong></p>
+<ul>
+<li><strong>Waterfall:</strong> Sequential phases; rigid; good for fixed requirements</li>
+<li><strong>Agile:</strong> Iterative sprints; flexible; most popular today</li>
+<li><strong>Scrum:</strong> Agile framework; sprints, daily standups, backlog</li>
+<li><strong>Kanban:</strong> Visual board; continuous flow</li>
+<li><strong>DevOps:</strong> Development + Operations collaboration; CI/CD</li>
+</ul>
+<h3 id="version-control">Version Control</h3>
+<ul>
+<li><strong>Git:</strong> Most popular distributed version control</li>
+<li><strong>Repository (repo):</strong> Project storage</li>
+<li><strong>Commit:</strong> Saved snapshot of changes</li>
+<li><strong>Branch:</strong> Independent line of development</li>
+<li><strong>Merge:</strong> Combine branches</li>
+<li><strong>Pull request:</strong> Request to merge changes (code review)</li>
+<li><strong>Clone:</strong> Copy a repository locally</li>
+<li><strong>Push:</strong> Send local commits to remote</li>
+<li><strong>Pull/Fetch:</strong> Get remote changes locally</li>
+</ul>
+<h3 id="testing-types">Testing Types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>What It Tests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unit</td>
+<td>Individual functions/methods</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>Multiple components together</td>
+</tr>
+<tr>
+<td>System</td>
+<td>Entire application</td>
+</tr>
+<tr>
+<td>Acceptance (UAT)</td>
+<td>Meets user requirements</td>
+</tr>
+<tr>
+<td>Regression</td>
+<td>New changes didn&#39;t break old functionality</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Speed, load, stress</td>
+</tr>
+<tr>
+<td>Security (Penetration)</td>
+<td>Vulnerabilities</td>
+</tr>
+<tr>
+<td>Smoke</td>
+<td>Basic functionality after build</td>
+</tr>
+<tr>
+<td>Black box</td>
+<td>No knowledge of internals</td>
+</tr>
+<tr>
+<td>White box</td>
+<td>Full knowledge of internals</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="6-domain-5-database-fundamentals">6. Domain 5: Database Fundamentals</h2>
+<h3 id="relational-databases">Relational Databases</h3>
+<ul>
+<li><strong>Table:</strong> 2D structure of rows and columns</li>
+<li><strong>Row/Record:</strong> Single data entry</li>
+<li><strong>Column/Field:</strong> Category of data</li>
+<li><strong>Primary Key:</strong> Unique identifier for each row</li>
+<li><strong>Foreign Key:</strong> Links to primary key in another table</li>
+<li><strong>Index:</strong> Speeds up queries</li>
+<li><strong>Schema:</strong> Database structure/blueprint</li>
+</ul>
+<p><strong>Database Relationships:</strong></p>
+<ul>
+<li><strong>One-to-One:</strong> One customer has one profile</li>
+<li><strong>One-to-Many:</strong> One customer has many orders</li>
+<li><strong>Many-to-Many:</strong> Students ↔ Courses (junction table needed)</li>
+</ul>
+<h3 id="sql-basics">SQL Basics</h3>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, age <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">users</span> <span class="hljs-keyword">WHERE</span> age &gt; <span class="hljs-number">18</span> <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">name</span>;
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-keyword">users</span> (<span class="hljs-keyword">name</span>, age) <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'Alice'</span>, <span class="hljs-number">25</span>);
+<span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">users</span> <span class="hljs-keyword">SET</span> age = <span class="hljs-number">26</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">name</span> = <span class="hljs-string">'Alice'</span>;
+<span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">users</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">name</span> = <span class="hljs-string">'Alice'</span>;
+</code></pre>
+<h3 id="non-relational-nosql-databases">Non-Relational (NoSQL) Databases</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Examples</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document</td>
+<td>MongoDB, CouchDB</td>
+<td>JSON-like data</td>
+</tr>
+<tr>
+<td>Key-Value</td>
+<td>Redis, DynamoDB</td>
+<td>Caching, sessions</td>
+</tr>
+<tr>
+<td>Column</td>
+<td>Cassandra, HBase</td>
+<td>Time-series, analytics</td>
+</tr>
+<tr>
+<td>Graph</td>
+<td>Neo4j</td>
+<td>Relationships, social networks</td>
+</tr>
+</tbody>
+</table>
+<p><strong>When to use NoSQL:</strong></p>
+<ul>
+<li>Large-scale data that doesn&#39;t fit a table</li>
+<li>Flexible/changing schema</li>
+<li>High read/write throughput</li>
+<li>Unstructured or semi-structured data</li>
+</ul>
+<h3 id="data-concepts">Data Concepts</h3>
+<ul>
+<li><strong>Data warehouse:</strong> Large store for historical data analysis</li>
+<li><strong>Data lake:</strong> Raw data store (any format)</li>
+<li><strong>Data mart:</strong> Subset of data warehouse for specific department</li>
+<li><strong>ETL:</strong> Extract, Transform, Load — data pipeline</li>
+<li><strong>OLTP:</strong> Online Transaction Processing (lots of small transactions)</li>
+<li><strong>OLAP:</strong> Online Analytical Processing (complex queries on large data)</li>
+<li><strong>Backup types:</strong><ul>
+<li>Full: Everything</li>
+<li>Incremental: Changes since last backup</li>
+<li>Differential: Changes since last full backup</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="7-domain-6-security">7. Domain 6: Security</h2>
+<h3 id="security-concepts">Security Concepts</h3>
+<ul>
+<li><p><strong>CIA Triad:</strong></p>
+<ul>
+<li><strong>Confidentiality:</strong> Only authorized users can access data</li>
+<li><strong>Integrity:</strong> Data is accurate and unmodified</li>
+<li><strong>Availability:</strong> Systems accessible when needed</li>
+</ul>
+</li>
+<li><p><strong>Authentication:</strong> Who are you? (username/password, biometrics, token)</p>
+</li>
+<li><strong>Authorization:</strong> What can you access? (permissions, roles)</li>
+<li><strong>Non-repudiation:</strong> Cannot deny performing an action (audit logs, digital signatures)</li>
+<li><strong>Least privilege:</strong> Give minimum access needed</li>
+</ul>
+<h3 id="authentication-factors">Authentication Factors</h3>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Type</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Something you know</td>
+<td>Knowledge</td>
+<td>Password, PIN, secret question</td>
+</tr>
+<tr>
+<td>Something you have</td>
+<td>Possession</td>
+<td>Security key, smart card, OTP token</td>
+</tr>
+<tr>
+<td>Something you are</td>
+<td>Inherence</td>
+<td>Fingerprint, face, retina</td>
+</tr>
+<tr>
+<td>Somewhere you are</td>
+<td>Location</td>
+<td>GPS, IP geofencing</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MFA/2FA:</strong> Using two or more factors for authentication.</p>
+<h3 id="common-threats">Common Threats</h3>
+<table>
+<thead>
+<tr>
+<th>Threat</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phishing</td>
+<td>Deceptive email to steal credentials</td>
+</tr>
+<tr>
+<td>Spear phishing</td>
+<td>Targeted phishing</td>
+</tr>
+<tr>
+<td>Vishing</td>
+<td>Voice/phone phishing</td>
+</tr>
+<tr>
+<td>Smishing</td>
+<td>SMS phishing</td>
+</tr>
+<tr>
+<td>Malware</td>
+<td>Any malicious software</td>
+</tr>
+<tr>
+<td>Virus</td>
+<td>Self-replicating malicious code (needs host file)</td>
+</tr>
+<tr>
+<td>Worm</td>
+<td>Self-replicating, spreads without host</td>
+</tr>
+<tr>
+<td>Trojan</td>
+<td>Disguises as legitimate software</td>
+</tr>
+<tr>
+<td>Ransomware</td>
+<td>Encrypts files and demands ransom</td>
+</tr>
+<tr>
+<td>Spyware</td>
+<td>Secretly monitors activity</td>
+</tr>
+<tr>
+<td>Adware</td>
+<td>Displays unwanted ads</td>
+</tr>
+<tr>
+<td>Rootkit</td>
+<td>Hides itself deep in OS</td>
+</tr>
+<tr>
+<td>Keylogger</td>
+<td>Records keystrokes</td>
+</tr>
+<tr>
+<td>Botnet</td>
+<td>Network of compromised machines</td>
+</tr>
+<tr>
+<td>DDoS</td>
+<td>Distributed Denial of Service</td>
+</tr>
+<tr>
+<td>SQL Injection</td>
+<td>Malicious SQL in input fields</td>
+</tr>
+<tr>
+<td>Man-in-the-Middle</td>
+<td>Intercept communications</td>
+</tr>
+<tr>
+<td>Social Engineering</td>
+<td>Manipulate people into revealing info</td>
+</tr>
+</tbody>
+</table>
+<h3 id="encryption">Encryption</h3>
+<ul>
+<li><strong>Encryption:</strong> Transform readable data (plaintext) into unreadable (ciphertext)</li>
+<li><strong>Decryption:</strong> Reverse process</li>
+<li><strong>Key:</strong> Secret value used in encryption/decryption</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Keys</th>
+<th>Examples</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Symmetric</td>
+<td>Same key for encrypt/decrypt</td>
+<td>AES, DES</td>
+<td>Fast, bulk data</td>
+</tr>
+<tr>
+<td>Asymmetric</td>
+<td>Public/private key pair</td>
+<td>RSA, ECC</td>
+<td>Key exchange, signatures</td>
+</tr>
+<tr>
+<td>Hashing</td>
+<td>One-way (no decryption)</td>
+<td>SHA-256, MD5</td>
+<td>Passwords, integrity</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>HTTPS:</strong> HTTP with TLS encryption (padlock in browser)</li>
+<li><strong>SSL/TLS:</strong> Protocol for encrypted web communication</li>
+<li><strong>PKI:</strong> Infrastructure for managing digital certificates</li>
+<li><strong>Digital Certificate:</strong> Proves identity; contains public key</li>
+<li><strong>Certificate Authority (CA):</strong> Trusted issuer of certificates</li>
+<li><strong>Digital Signature:</strong> Proves sender identity and integrity</li>
+</ul>
+<h3 id="security-controls">Security Controls</h3>
+<p><strong>By Type:</strong></p>
+<ul>
+<li><strong>Technical:</strong> Firewalls, antivirus, encryption, MFA, IDS/IPS</li>
+<li><strong>Administrative:</strong> Policies, training, background checks, procedures</li>
+<li><strong>Physical:</strong> Locks, cameras, guards, badge access, mantrap</li>
+</ul>
+<p><strong>By Function:</strong></p>
+<ul>
+<li><strong>Preventive:</strong> Stop attacks (firewall, antivirus)</li>
+<li><strong>Detective:</strong> Find attacks (IDS, logs, SIEM)</li>
+<li><strong>Corrective:</strong> Fix after attack (backup restoration, patch)</li>
+<li><strong>Deterrent:</strong> Discourage attacks (warning signs, legal notices)</li>
+</ul>
+<h3 id="network-security">Network Security</h3>
+<ul>
+<li><strong>Firewall:</strong> Blocks/allows traffic based on rules</li>
+<li><strong>IDS:</strong> Intrusion Detection System — monitors and alerts</li>
+<li><strong>IPS:</strong> Intrusion Prevention System — monitors and blocks</li>
+<li><strong>VPN:</strong> Encrypted tunnel over public internet</li>
+<li><strong>DMZ:</strong> Demilitarized Zone — separate network for public-facing servers</li>
+<li><strong>NAT:</strong> Network Address Translation — hides internal IPs</li>
+<li><strong>ACL:</strong> Access Control List — rules for who can access what</li>
+</ul>
+<h3 id="physical-security">Physical Security</h3>
+<ul>
+<li><strong>Mantrap:</strong> Airlock-style double doors; one opens at a time</li>
+<li><strong>Badge access:</strong> Proximity card or smart card entry</li>
+<li><strong>Biometrics:</strong> Fingerprint/face/iris for physical access</li>
+<li><strong>CCTV:</strong> Closed-circuit television (cameras)</li>
+<li><strong>Cable locks:</strong> Physically secure laptops</li>
+<li><strong>Safe/vault:</strong> Protect critical media and hardware</li>
+</ul>
+<h3 id="security-best-practices">Security Best Practices</h3>
+<ul>
+<li>Use strong, unique passwords (12+ characters, mixed types)</li>
+<li>Enable MFA on all accounts</li>
+<li>Keep software updated (patch regularly)</li>
+<li>Use antivirus/EDR software</li>
+<li>Encrypt sensitive data</li>
+<li>Use HTTPS everywhere</li>
+<li>Regular data backups (follow 3-2-1 rule)</li>
+<li>Principle of least privilege</li>
+<li>Security awareness training</li>
+<li>Incident response plan</li>
+</ul>
+<p><strong>3-2-1 Backup Rule:</strong></p>
+<ul>
+<li><strong>3</strong> copies of data</li>
+<li><strong>2</strong> different storage types</li>
+<li><strong>1</strong> offsite copy</li>
+</ul>
+<hr>
+<h2 id="8-quick-review-key-terms">8. Quick Review: Key Terms</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API</td>
+<td>Application Programming Interface — lets software talk to each other</td>
+</tr>
+<tr>
+<td>CLI</td>
+<td>Command-Line Interface</td>
+</tr>
+<tr>
+<td>GUI</td>
+<td>Graphical User Interface</td>
+</tr>
+<tr>
+<td>BIOS/UEFI</td>
+<td>Firmware that starts a computer</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Operating System</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>Central Processing Unit</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>Random Access Memory (volatile)</td>
+</tr>
+<tr>
+<td>HDD/SSD</td>
+<td>Storage drives</td>
+</tr>
+<tr>
+<td>IP Address</td>
+<td>Unique network identifier</td>
+</tr>
+<tr>
+<td>MAC Address</td>
+<td>Hardware-level network address</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>Domain Name System — translates names to IPs</td>
+</tr>
+<tr>
+<td>DHCP</td>
+<td>Auto-assigns IP addresses</td>
+</tr>
+<tr>
+<td>HTTP/HTTPS</td>
+<td>Web browsing protocols</td>
+</tr>
+<tr>
+<td>FTP</td>
+<td>File Transfer Protocol</td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>Secure Shell — remote CLI access</td>
+</tr>
+<tr>
+<td>VPN</td>
+<td>Virtual Private Network</td>
+</tr>
+<tr>
+<td>Firewall</td>
+<td>Network/host traffic filter</td>
+</tr>
+<tr>
+<td>Encryption</td>
+<td>Protect data with cipher</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Verify identity</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Grant access rights</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em>End of CompTIA Tech+ Study Guide</em></p>
+<hr>
+</body>
+</html>

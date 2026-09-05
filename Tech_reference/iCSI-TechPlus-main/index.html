@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tech+ StudyHub — CompTIA Tech+ (FC0-U71) Exam Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/app.css"/>
+</head>
+<body>
+
+<header id="topbar">
+  <button class="logo-btn" type="button" onclick="goHome()" title="Dashboard">
+    <span class="logo-mark">T+</span>
+    <div class="logo">Tech<em>+</em> StudyHub</div>
+  </button>
+  <div class="topbar-divider" aria-hidden="true"></div>
+  <div class="topbar-class-name" id="topbar-context">CompTIA Tech+ (FC0-U71)</div>
+  <div class="topbar-actions">
+    <button class="theme-toggle" id="theme-toggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode">◐</button>
+  </div>
+</header>
+
+<div id="sidebar-overlay" onclick="toggleMobileSidebar()"></div>
+
+<div id="shell">
+  <aside id="sidebar">
+    <div id="class-sidebar" style="flex:1;display:flex;flex-direction:column;overflow:hidden;min-height:0;">
+      <div class="sidebar-head" id="class-sidebar-head"></div>
+      <div class="sidebar-search-wrap">
+        <input type="search" class="sidebar-search" id="lesson-search" placeholder="Filter lessons… (press /)" autocomplete="off" spellcheck="false"/>
+      </div>
+      <div id="class-nav"></div>
+    </div>
+  </aside>
+
+  <main id="main">
+    <div id="reading-progress"><div id="reading-progress-fill"></div></div>
+
+    <div class="view active" id="v-home">
+      <div id="v-home-inner"></div>
+    </div>
+
+    <div class="view" id="v-lesson">
+      <div class="content-panel lesson-container" id="lesson-body-container"></div>
+    </div>
+
+    <div class="view" id="v-quiz">
+      <div class="content-panel content-panel--wide quiz-container" id="quiz-body-container"></div>
+    </div>
+
+    <div class="view" id="v-flashcards">
+      <div class="content-panel content-panel--wide quiz-container" id="flashcards-body-container"></div>
+    </div>
+  </main>
+</div>
+
+<nav id="mobile-nav" aria-label="Mobile navigation">
+  <button class="mobile-nav-btn" type="button" data-action="home" onclick="goHome()">
+    <span>🏠</span><span>Dashboard</span>
+  </button>
+  <button class="mobile-nav-btn" type="button" data-action="lessons" onclick="toggleMobileSidebar()">
+    <span>📚</span><span>Sections</span>
+  </button>
+  <button class="mobile-nav-btn hidden" type="button" data-action="next" onclick="mobileNext()">
+    <span>→</span><span>Next</span>
+  </button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/courses.js"></script>
+<script src="assets/content.js"></script>
+<script src="assets/flashcards.js"></script>
+<script src="assets/voucher-plans.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
