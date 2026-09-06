@@ -63,6 +63,38 @@
         ]
       }
 
+   4) True or false
+      {
+        type: "true-false",
+        statement: "RAM is used for short-term working data.",
+        correct: true,
+        explanation: "RAM holds data that the computer is actively using."
+      }
+
+   5) Select more than one
+      {
+        type: "multi-select",
+        question: "Which are storage devices?",
+        options: ["SSD", "RAM", "HDD", "CPU"],
+        correctIndices: [0, 2]
+      }
+
+   6) Fill in the blank
+      {
+        type: "fill-blank",
+        prompt: "The CPU is the ____ of the computer.",
+        accepted: ["brain"],
+        hint: "It performs instructions"
+      }
+
+   7) Put items in order
+      {
+        type: "order-items",
+        question: "Put the troubleshooting steps in the best order.",
+        items: ["Test the fix", "Identify the problem", "Apply a solution"],
+        correctOrder: [1, 2, 0]
+      }
+
    TO ADD A NEW UNIT
    ------------------
    Copy one of the objects inside `units: [ ... ]` below, paste it as a
@@ -80,12 +112,12 @@
    ========================================================================= */
 
 window.COURSE_DATA = {
-  courseTitle: "PathLearn",
+  courseTitle: "TechLearn",
 
   units: [
     {
       id: "Objective 1",
-      title: "Objective 1, IT Concepts",
+      title: "IT Concepts",
       description: "Learn your IT concepts",
       accent: "blue",
       lessons: [
@@ -107,6 +139,26 @@ window.COURSE_DATA = {
               accepted: ["graphic processing unit", "graphics processing unit"],
               hint: "It handles graphics",
               explanation: "The term 'GPU' stands for Graphics Processing Unit"
+            },
+            {
+              type: "true-false",
+              statement: "RAM is a type of long-term storage.",
+              correct: false,
+              explanation: "RAM is temporary working memory; storage devices retain data when powered off."
+            },
+            {
+              type: "multi-select",
+              question: "Which components can store data?",
+              options: ["SSD", "RAM", "HDD", "GPU"],
+              correctIndices: [0, 1, 2],
+              explanation: "SSDs, hard drives, and RAM all store data, although RAM is temporary."
+            },
+            {
+              type: "fill-blank",
+              prompt: "The CPU is often called the ____ of the computer.",
+              accepted: ["brain"],
+              hint: "It carries out instructions",
+              explanation: "The CPU processes instructions, so it is often compared to a brain."
             },
             {
               type: "multiple-choice",

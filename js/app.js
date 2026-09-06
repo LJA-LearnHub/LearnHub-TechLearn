@@ -276,7 +276,7 @@
   }
 
   function updateHeaderStats() {
-    el.courseTitle.textContent = COURSE_DATA.courseTitle || "PathLearn";
+    el.courseTitle.textContent = COURSE_DATA.courseTitle || "TechLearn";
     el.streakCount.textContent = computeDisplayStreak();
     el.xpCount.textContent = state.xp || 0;
   }
@@ -398,6 +398,14 @@
       renderTypeAnswer(ex);
     } else if (ex.type === "match-pairs") {
       renderMatchPairs(ex);
+    } else if (ex.type === "true-false") {
+      renderTrueFalse(ex);
+    } else if (ex.type === "multi-select") {
+      renderMultiSelect(ex);
+    } else if (ex.type === "fill-blank") {
+      renderFillBlank(ex);
+    } else if (ex.type === "order-items") {
+      renderOrderItems(ex);
     } else {
       el.lessonBody.innerHTML = `<p>Unknown exercise type: ${escapeHtml(ex.type)}</p>`;
     }
@@ -550,6 +558,145 @@
     rightItems.forEach(item => rightCol.appendChild(makeBtn(item, "right")));
 
     el.lessonActionBtn.onclick = null;
+  }
+
+  /* ---- True or false ---- */
+  function renderTrueFalse(ex) {
+    el.lessonBody.innerHTML = `
+      <div class="exercise-kicker">True or false</div>
+      <div class="exercise-question">${escapeHtml(ex.statement || ex.question)}</div>
+      <div class="options-grid" id="true-false-options"></div>
+    `;
+    const grid = document.getElementById("true-false-options");
+    [true, false].forEach((value) => {
+      const btn = document.createElement("button");
+      btn.className = "option-btn";
+      btn.type = "button";
+      btn.textContent = value ? "True" : "False";
+      btn.addEventListener("click", () => {
+        grid.querySelectorAll(".option-btn").forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        session.selection = value;
+        setActionButton("Check", false, false);
+      });
+      grid.appendChild(btn);
+    });
+    el.lessonActionBtn.onclick = () => {
+      const correct = session.selection === ex.correct;
+      grid.querySelectorAll(".option-btn").forEach((btn, index) => {
+        const value = index === 0;
+        if (value === ex.correct) btn.classList.add("correct-reveal");
+        else if (value === session.selection && !correct) btn.classList.add("incorrect-reveal");
+        btn.disabled = true;
+      });
+      handleAnswerResult(correct, ex.explanation);
+    };
+  }
+
+  /* ---- Select more than one ---- */
+  function renderMultiSelect(ex) {
+    el.lessonBody.innerHTML = `
+      <div class="exercise-kicker">Select all that apply</div>
+      <div class="exercise-question">${escapeHtml(ex.question)}</div>
+      <div class="options-grid" id="multi-select-options"></div>
+    `;
+    const grid = document.getElementById("multi-select-options");
+    const selected = new Set();
+    ex.options.forEach((option, index) => {
+      const btn = document.createElement("button");
+      btn.className = "option-btn";
+      btn.type = "button";
+      btn.textContent = option;
+      btn.addEventListener("click", () => {
+        if (selected.has(index)) {
+          selected.delete(index);
+          btn.classList.remove("selected");
+        } else {
+          selected.add(index);
+          btn.classList.add("selected");
+        }
+        session.selection = [...selected];
+        setActionButton("Check", selected.size === 0, false);
+      });
+      grid.appendChild(btn);
+    });
+    el.lessonActionBtn.onclick = () => {
+      const expected = [...ex.correctIndices].sort((a, b) => a - b);
+      const actual = [...selected].sort((a, b) => a - b);
+      const correct = expected.length === actual.length && expected.every((value, i) => value === actual[i]);
+      grid.querySelectorAll(".option-btn").forEach((btn, index) => {
+        if (ex.correctIndices.includes(index)) btn.classList.add("correct-reveal");
+        else if (selected.has(index)) btn.classList.add("incorrect-reveal");
+        btn.disabled = true;
+      });
+      handleAnswerResult(correct, ex.explanation, correct ? null : `Correct answers: ${ex.correctIndices.map(index => ex.options[index]).join(", ")}`);
+    };
+  }
+
+  /* ---- Fill in a missing word ---- */
+  function renderFillBlank(ex) {
+    el.lessonBody.innerHTML = `
+      <div class="exercise-kicker">Fill in the blank</div>
+      <div class="exercise-question">${escapeHtml(ex.prompt)}</div>
+      <input type="text" class="type-answer-input" id="fill-blank-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the missing word..." aria-label="Missing word">
+      ${ex.hint ? `<div class="type-answer-hint">Hint: ${escapeHtml(ex.hint)}</div>` : ""}
+    `;
+    const input = document.getElementById("fill-blank-input");
+    const updateAnswerState = () => {
+      session.selection = input.value;
+      setActionButton("Check", input.value.trim().length === 0, false);
+    };
+    input.addEventListener("input", updateAnswerState);
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !el.lessonActionBtn.disabled) el.lessonActionBtn.click();
+    });
+    requestAnimationFrame(() => input.focus());
+    el.lessonActionBtn.onclick = () => {
+      const raw = input.value.trim().toLowerCase();
+      const accepted = ex.accepted.map(answer => answer.trim().toLowerCase());
+      const correct = accepted.includes(raw);
+      input.classList.add(correct ? "correct-reveal" : "incorrect-reveal");
+      input.disabled = true;
+      handleAnswerResult(correct, ex.explanation, correct ? null : `Correct answer: ${ex.accepted[0]}`);
+    };
+  }
+
+  /* ---- Build an ordered list ---- */
+  function renderOrderItems(ex) {
+    el.lessonBody.innerHTML = `
+      <div class="exercise-kicker">Put these steps in order</div>
+      <div class="exercise-question">${escapeHtml(ex.question)}</div>
+      <div class="options-grid" id="order-items"></div>
+    `;
+    const grid = document.getElementById("order-items");
+    const remaining = ex.items.map((item, index) => ({ item, index }));
+    const chosen = [];
+    const renderChoices = () => {
+      grid.innerHTML = chosen.length
+        ? `<div class="selection-status">${chosen.map((index, position) => `${position + 1}. ${escapeHtml(ex.items[index])}`).join("<br>")}</div>`
+        : `<div class="selection-status">Choose the first step.</div>`;
+      remaining.forEach(({ item, index }) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.type = "button";
+        btn.textContent = item;
+        btn.addEventListener("click", () => {
+          chosen.push(index);
+          remaining.splice(remaining.findIndex(entry => entry.index === index), 1);
+          if (remaining.length === 0) {
+            session.selection = chosen.slice();
+            setActionButton("Check", false, false);
+          }
+          renderChoices();
+        });
+        grid.appendChild(btn);
+      });
+    };
+    renderChoices();
+    el.lessonActionBtn.onclick = () => {
+      const correct = chosen.every((index, position) => index === ex.correctOrder[position]);
+      handleAnswerResult(correct, ex.explanation, correct ? null : `Correct order: ${ex.correctOrder.map(index => ex.items[index]).join(" -> ")}`);
+    };
   }
 
   function shuffle(arr) {
