@@ -1,9 +1,9 @@
 {
-  "name": "techlearn",
-  "version": "0.1.0",
-  "description": "TechLearn interactive IT learning path",
+  "name": "TechLearn",
+  "version": "1.0.0",
+  "description": "Made by Logan Allenstein. github.com/LJA-ICSI25",
   "main": "main.js",
-  "author": "TechLearn",
+  "author": "LJA-ICSI25",
   "license": "MIT",
   "private": true,
   "scripts": {

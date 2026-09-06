@@ -775,6 +775,13 @@
     renderSideRail();
   });
 
+  // Allow Enter key to continue from completion overlay
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !el.completeOverlay.hidden) {
+      el.completeContinueBtn.click();
+    }
+  });
+
   /* ---- Out of hearts ---- */
   el.heartsRetryBtn.addEventListener("click", () => {
     el.heartsOverlay.hidden = true;
